@@ -1,0 +1,417 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "ButtonProps",
+            "id": "interface-ButtonProps-a1a03afdc8c6123d806708901f74f4522141ab7d17ba21d8fc48a12ecb08e48b3289954618350cc5911c5a6baf0af241960c3991268fdee2275903cdab87448a",
+            "file": "projects/storybook/src/lib/components/button/button.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface ButtonProps {\n  color: 'blue-100' | 'blue-200' | 'blue-300' | 'blue-400' | 'blue-500'\n  label: string\n  onClick: () => void\n}",
+            "properties": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"blue-100\" | \"blue-200\" | \"blue-300\" | \"blue-400\" | \"blue-500\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "onClick",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-7d642157ecdea1b87b731ff4bf01225d17da8b25327d15b23b40569de3936a20930d7c4f4e6e458c35e6d78a83bedbf02c8fac21e76d00a4503c1b3978e3cc43",
+            "file": "projects/storybook/src/lib/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "btn-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'blue-300'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "\"blue-100\" | \"blue-200\" | \"blue-300\" | \"blue-400\" | \"blue-500\"",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Hi there!'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'btn-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n  \n  @Input() color: 'blue-100' | 'blue-200' | 'blue-300' | 'blue-400' | 'blue-500' = 'blue-300';\n\n  @Input() label = 'Hi there!';\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    return ['btn', `btn-${this.color}`];\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../assets/styles/main.scss\";\n\n.btn {\n  padding: $spacing-inline-xs;\n  border: 0;\n  border-radius: $border-radius-sm;\n  cursor: pointer;\n}\n\n.btn-blue-100 {\n  background-color: $blue-100;\n  color: $white;\n}\n.btn-blue-200 {\n  background-color: $blue-200;\n  color: $white;\n}\n.btn-blue-300 {\n  background-color: $blue-300;\n  color: $white;\n}\n.btn-blue-400 {\n  background-color: $blue-400;\n  color: $white;\n}\n.btn-blue-500 {\n  background-color: $blue-500;\n  color: $white;\n}",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 16
+                    }
+                }
+            },
+            "templateData": "<button \n  type=\"button\" \n  (click)=\"onClick.emit($event)\" \n  [ngClass]=\"classes\"\n>\n  {{ label }}\n</button>"
+        },
+        {
+            "name": "StorybookComponent",
+            "id": "component-StorybookComponent-71a5c03afa10102a2671f81fb38f031d6723ede86a5ba3b4095a4b8b544705e4d7935aa874a376a4d31b4ee39e2ab5e3d617e28366ac785ec69d22ffd4cc04aa",
+            "file": "projects/storybook/src/lib/storybook.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-storybook",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  storybook works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'storybook-storybook',\n  template: `\n    <p>\n      storybook works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class StorybookComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "implements": [
+                "OnInit"
+            ]
+        }
+    ],
+    "modules": [
+        {
+            "name": "ButtonModule",
+            "id": "module-ButtonModule-a4b89fe88c3f9306770efa9fca58308cee3444b2fd67cff689be184987c7bb1d2b426a402577fab4974ca14db77d291b39295869bb284f136e61ca503ad444f1",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/storybook/src/lib/components/button/button.module.ts",
+            "methods": [],
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { ButtonComponent } from './button.component';\n\n\n\n@NgModule({\n  declarations: [ButtonComponent],\n  imports: [CommonModule],\n  exports: [ButtonComponent]\n})\nexport class ButtonModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "StorybookModule",
+            "id": "module-StorybookModule-3793baee5de4be594c156640ad9bdcc3e0232b94a39bbf87215bd6846ab571ae12cde745210b67b33eb7a1e88fdaef30b1c124516aaab76922ac5321751b96cd",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/storybook/src/lib/storybook.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ButtonModule } from './components/button/button.module';\nimport { StorybookComponent } from './storybook.component';\n\n@NgModule({\n  declarations: [StorybookComponent],\n  imports: [\n    ButtonModule,\n  ],\n  exports: [\n    StorybookComponent\n  ]\n})\nexport class StorybookModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "StorybookComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ButtonModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "StorybookComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "a",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/test.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(args: ButtonProps) => ({\n  template: `\n    <btn-button\n      [label]=\"label\"\n      [color]=\"color\"\n      (onClick)=\"handleClick()\"\n    ></btn-button>`,\n  props: args\n})"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/storybook/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/storybook/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "stories/components/test.stories.ts": [
+                {
+                    "name": "a",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/test.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(args: ButtonProps) => ({\n  template: `\n    <btn-button\n      [label]=\"label\"\n      [color]=\"color\"\n      (onClick)=\"handleClick()\"\n    ></btn-button>`,\n  props: args\n})"
+                }
+            ],
+            "projects/storybook/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/storybook/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/storybook/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/storybook/src/lib/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/storybook/src/lib/components/button/button.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ButtonProps",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/storybook/src/lib/storybook.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StorybookComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/storybook/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/storybook/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/test.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "a",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
